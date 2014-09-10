@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    div(class='container')
+      img(src="images/1.png",width="300px")
+    div(class='container')
+      div(class='row')
+        div(class='col-lg-6')
+          form(class='form-horizontal' role='form' method='post' action='/login') 
+            div(class='form-group')       
+              lable(class='col-lg-4 control-label') Account
+              div(class='col-lg-8')  
+                input(type='text' class='form-control' name='login_username' placeholder='Account' required='')                              
+            div(class='form-group')       
+              lable(class='col-lg-4 control-label') Password 
+              div(class='col-lg-8')  
+                input(type='password' class='form-control' name='login_password' placeholder='Password' required='')     
+            div(class='form-group')
+              div(class='col-lg-offset-9 col-lg-3')       
+                button(class='btn btn-lg btn-primary btn-block' type='submit') Log in    
+        div(class='col-md-6')
+          form(class='form-horizontal' role='form' method='post' action='/login')
+            div(class='form-group')                                                                                                    
+              lable(class='col-lg-4 control-label') Account
+              div(class='col-lg-8')  
+                input(type='text' class='form-control' name='signup_username' placeholder='Account' required='')                              
+            div(class='form-group')       
+              lable(class='col-lg-4 control-label') Password 
+              div(class='col-lg-8')  
+                input(type='password' class='form-control' name='signup_password' placeholder='Password' required='')
+            div(class='form-group')       
+              lable(class='col-lg-4 control-label') Email                                                                           
+              div(class='col-lg-8')  
+                input(type='email' class='form-control' name='signup_email' placeholder='Email' required='')          
+            div(class='form-group')
+              div(class='col-lg-offset-9 col-lg-3')       
+                button(class='btn btn-lg btn-primary btn-block' type='submit') Sign up
+
+

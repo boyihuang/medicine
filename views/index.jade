@@ -1,0 +1,57 @@
+extends layout
+
+block content
+  .container
+    h1(align="center", style="color : red")
+      b Welcome to the Website
+    h3(align="center", style="color : blue") (If you don't have any account , just signup first)    
+    br
+    br
+    .row
+      .col-lg-6
+        form.form-horizontal(role="form", method="post", action="/login")
+          .form-group
+            label.col-lg-2 Account
+            .col-lg-9
+              input.form-control(type="text", name="login_username", placeholder="Account", required)
+          .form-group
+            label.col-lg-2 Passoword
+            .col-lg-9
+              input.form-control(type="password", name="login_password", placeholder="Password", required)
+          .form-group
+            .col-lg-offset-8.col-lg-3
+              input.btn.btn-lg.btn-primary.btn-block(type="submit", value="Log in")
+      .col-lg-6
+        form.form-horizontal(role="form", method="post", action="/login")
+          .form-group
+            label.col-lg-2 Account
+            .col-lg-9
+               input.form-control(type="text", name="signup_username", placeholder="Account", required)
+          .form-group
+            label.col-lg-2 Passoword
+            .col-lg-9
+              input.form-control(type="password", name="signup_password", placeholder="Password", required)
+          .form-group
+            label.col-lg-2 Email
+            .col-lg-9
+              input.form-control(type="email", name="signup_password", placeholder="Email", required)
+          .form-group
+            label.col-lg-2 Real Name
+            .col-lg-9
+              input.form-control(type="text", name="signup_realname", placeholder="Real Name", required)
+          .form-group
+            label.col-lg-2 Institution /Company
+            .col-lg-9
+              input.form-control(type="text", name="signup_company", placeholder="Institution/Company", required)
+          .form-group
+            label.col-lg-2 Country
+            .col-lg-9
+              input.form-control(type="text", name="signup_country", placeholder="Country", required)
+          .form-group
+            label.col-lg-2 Website(if have)
+            .col-lg-9
+              input.form-control(type="text", name="signup_website", placeholder="Website")
+          .form-group
+            .col-lg-offset-8.col-lg-3
+              input.btn.btn-lg.btn-primary.btn-block(type="submit", value="Sign up")
+

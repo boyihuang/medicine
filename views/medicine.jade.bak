@@ -1,0 +1,68 @@
+extends layout
+block content
+  script
+    $.post('/home',"",function(data){
+              $("#HTML_content").html(data);
+    });
+
+    function HTML_content_change(index)
+    {
+      $("li").siblings().removeClass("active");
+      switch(index)
+        {
+          case '_home':
+            $.post('/home',"",function(data){
+              $("#HTML_content").html(data);
+            });
+            //alert(index);
+            break;
+          case '_play':
+            $.post('/game',"",function(data){
+              $("#HTML_content").html(data);
+            });
+            //alert(index);
+            break;
+          case '_about':
+            $.post('/about',"",function(data){
+              $("#HTML_content").html(data);
+            });
+            break;
+          case '_contact':
+            $.post('/contact',"",function(data){
+              $("#HTML_content").html(data);
+            });
+            break;
+          defaule:
+            alert(index);
+            break;
+        }
+        $("#"+index).addClass("active");
+    }
+  img(src="images/1.png",width="300px")                                     
+  br
+  br
+  div(class="container")
+    div(class="masthead")
+      ul(class="nav nav-justified")
+        li(id="_home",class="active")
+          a(href='javascript:HTML_content_change("_home");') Home
+        li(id="_play")
+          a(href='javascript:HTML_content_change("_play");') Play
+        li(id="_about")
+          a(href='javascript:HTML_content_change("_about");') About
+        li(id="_contact")
+          a(href='javascript:HTML_content_change("_contact");') Contact
+    br
+    div(class="row row-officanvas row-offcanvas-right")
+      div(class="col-xs-12 col-sm-9", style="overflow: hidden;")#HTML_content
+      div(class="col-xs-6 col-sm-3 sidebar-offcanvas ", role="navigation")
+        div(class="list-group")
+          ul(class="list-group-item") 
+            li(class ="list-group-item list-group-item-info") 
+              center 最高紀錄
+            div#score_board
+              for data in score_list
+                li(class="list-group-item list-group-item-warning") 
+                  center #{data.Name} : #{data.Score}
+              //h5(class="list-group-item-text") Score:#{data.Score}
+             
