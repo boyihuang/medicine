@@ -30,3 +30,10 @@ function HTML_content_change(index){
       }
       $("#"+index).addClass("active");
 }
+
+$.post('/search_db',"",function(data){                                                                           
+  $("#HTML_search").html(data);
+});
+function Search(){
+
+}
