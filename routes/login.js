@@ -35,7 +35,7 @@ router.post('/', function(req, res) {
           console.log('Successfully Login');
           console.log(data[0].user_name);
           console.log(data[0].user_email);
-          res.render('medicine',{ username: data[0].user_name , useremail : data[0].user_email});
+          res.render('introduction',{ username: data[0].user_name , useremail : data[0].user_email});
           //res.redirect('/medicine');
         }
         else{
@@ -75,7 +75,7 @@ router.post('/', function(req, res) {
                 console.log('Failed to Insert');
               }
           });
-          res.render('medicine',{ username: signup_username , useremail : signup_email});
+          res.render('instroduction',{ username: signup_username , useremail : signup_email});
         } 
       });    
     }
