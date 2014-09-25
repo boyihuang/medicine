@@ -4,11 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var db = require('./routes/db');
 var login = require('./routes/login');
 var medicine = require('./routes/medicine');
+
+var Busboy = require('busboy');
+var fs = require('fs');
+
 //var search = require('./routes/search');
 //var about = require('./routes/about');
 //var upload = require('./routes/upload');

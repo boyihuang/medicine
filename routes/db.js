@@ -10,4 +10,12 @@ var collection = db.get('record_collection');
 
 console.log('db');
 
-module.exports = router;
+router.post('/',function(req, res) {
+  console.log(req.body);      
+  collection.insert({"projectName":req.body.projectName,"Age":req.body.Age,"Hand":req.body.Hand,"Organ":req.body.Organ,
+                     "Species":req.body.species,"Date":req.body.mdate,"unknow":req.body.unknow,"Des":req.body.des
+  });                         
+  console.log("DB finished"); 
+  res.send('Upload finish!!');                                                                                                            
+});                                                       
+module.exports = router; 

@@ -3,11 +3,17 @@ html
   head
     title= title
     meta(charset="utf-8")
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
-    //link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.css')
-    script(src="/jquery/dist/jquery.js")
-    script(src='/bootstrap/dist/js/bootstrap.min.js')
-    script(src="/javascripts/medicine.js")
+    meta(name='viewport', content='width=device-width')
+    block css
+      link(rel='stylesheet', href='/stylesheets/style.css')
+      link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
+      //link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.css')
+    block js  
+      script(src="/jquery/dist/jquery.js")
+      script(src='/bootstrap/dist/js/bootstrap.min.js')
+      script(src="/javascripts/medicine.js")
+      script(src='http://localhost:35729/livereload.js')
+      script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    include ./medicine.jade
   body(class="#{bodyClass}")
     block content

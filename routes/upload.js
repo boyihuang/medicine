@@ -1,25 +1,36 @@
-var express = require('express');                                           
+var express = require('express');
+var path = require('path');
 var router = express.Router();
-router.post('/', function(req,res){
-	content = '' +
-		'<div id="game" style="overflow: hidden;"><\/div>' + 
-    	'<div>' +
-    	  '<center><input type="button" class="btn btn-danger" onclick="gameStart();" value="Play" /></center>' +
-    		'<p>' +
-        		'<ul>' + 
-            		'<li type="disc">當你喊出<b class="bg-info"><font size="4">POP</font></b>時,角色會往<b class="bg-info"><font size="4">上方</font></b>移動</li>' +
-            		'<li type="disc">當你喊出<b class="bg-info"><font size="4">PUSH</font></b>時,角色會往<b class="bg-info"><font size="4">下方</font></b>移動</li>' +
-            		'<li type="disc">當你喊出<b class="bg-info"><font size="4">SHOOT、SHOO~</font></b>時,角色會<b class="bg-info"><font size="4">發射棒球</font></b></li>' +
-            		'<li type="disc">當你喊出<b class="bg-info"><font size="4">BOOM</font></b>時,角色會<b class="bg-info"><font size="4">使用大招</font></b>消滅所有物體</li>' +
-        		'</ul>' +
-            '<h3 class="bg-success">本遊戲因技術上問題，目前只限Chrome瀏覽器使用</h3>' +
-        '</p>' +
-        '</div>' +
-        '<script src="/js/game_control.js">' + '<\/script>' + 
-        '<script src="/js/game_play.js">' + '<\/script>' + 
-        '<script src="/js/game_menu.js">' + '<\/script>' + 
-        '<script src="/js/game.js">' + '<\/script>';
-        
-	res.send(content);
+var Busboy = require('busboy');
+var fs = require('fs');
+
+router.post('/', function(req, res) {
+  var busboy = new Busboy({ headers: req.headers });
+  busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+    console.log("on file");
+    var time = (new Date()).getTime();
+    var saveTo = path.join(__dirname,'/files/',filename + '_' + time);
+    console.log("PATH >> " + saveTo);
+    file.pipe(fs.createWriteStream(saveTo));
+  });
+  busboy.on('finish', function() {
+    console.log("on finish");
+    res.redirect('/');
+  });
+  //console.log(req.body.content);
+  //res.send("OK");
+  return req.pipe(busboy);
+
 });
-module.exports = router ;
+
+/*router.get('/',function(req,res){
+  res.writeHead(200, { Connection: 'close' });
+  res.end('<html><head></head><body>\
+    <form method="POST" enctype="multipart/form-data">\
+    <input type="file" name="filefield"><br />\
+    <input type="submit">\
+    </form>\
+    </body></html>');
+});
+*/
+module.exports = router;
