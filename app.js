@@ -8,10 +8,11 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var db = require('./routes/db');
 var login = require('./routes/login');
-var search = require('./routes/search');
-var about = require('./routes/about');
-var upload = require('./routes/upload');
-var introduction = require('./routes/introduction');
+var medicine = require('./routes/medicine');
+//var search = require('./routes/search');
+//var about = require('./routes/about');
+//var upload = require('./routes/upload');
+//var introduction = require('./routes/introduction');
   
 var app = express();
 
@@ -31,10 +32,11 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/db', db);
 app.use('/login', login);
-app.use('/about', about);
-app.use('/search', search);
-app.use('/upload', upload);
-app.use('/introduction', introduction);
+app.use('/medicine',medicine);
+//app.use('/about', about);
+//app.use('/search', search);
+//app.use('/upload', upload);
+//app.use('/introduction', introduction);
 
 
 // catch 404 and forward to error handler
