@@ -16,7 +16,7 @@ var fs = require('fs');
 
 //var search = require('./routes/search');
 //var about = require('./routes/about');
-//var upload = require('./routes/upload');
+var upload = require('./routes/upload');
 //var introduction = require('./routes/introduction');
   
 var app = express();
@@ -40,7 +40,7 @@ app.use('/login', login);
 app.use('/medicine',medicine);
 //app.use('/about', about);
 //app.use('/search', search);
-//app.use('/upload', upload);
+app.use('/upload', upload);
 //app.use('/introduction', introduction);
 
 

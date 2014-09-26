@@ -23,7 +23,9 @@ router.post('/', function(req, res) {
 
 });
 
-/*router.get('/',function(req,res){
+router.get('/',function(req,res){
+  res.render('upload',{});
+  /*
   res.writeHead(200, { Connection: 'close' });
   res.end('<html><head></head><body>\
     <form method="POST" enctype="multipart/form-data">\
@@ -31,6 +33,7 @@ router.post('/', function(req, res) {
     <input type="submit">\
     </form>\
     </body></html>');
+    */
 });
-*/
+
 module.exports = router;

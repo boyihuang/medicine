@@ -1,7 +1,6 @@
 extends internal_layout
 block content
   h1= title
-  p Welcome to #{title}
   form(action='/upload',method="POST",enctype="multipart/form-data",id="form_id")
     input(type="file",name="filefield")#file
     br
@@ -47,7 +46,8 @@ block content
     input(type="submit", id="submit_btn",value="Upload")
 
   script(type='text/javascript').
-
+    $("li").siblings().removeClass("active");
+    $("#upload_nav").addClass("active");
     function prepareUpload(event)
     {
       console.log("Change");
@@ -90,32 +90,4 @@ block content
       });
     }
 
-    function GO()
-    {
-      var projectName = $('#Project').val();
-      var status = $('input[name=status]').val();
-      var age = $('#Age').val();
-      var hand = $('input[name=hand]').val();
-      var organ = $('#Organ').val();
-      var species = $('#Species').val();
-      var mdate = $('#Date').val();
-      var unknow = $('input[name=Unknow]').val();
-      var des = $('#Description').val();
-  
-      $.post('/db',{"projectName":projectName,"Age":age,"hand":hand,"organ":organ,
-                    "species":species,"date":mdate,"unknow":unknow,"des":des},function(data){
-        alert('post finish');
-      });
-      
-      console.log("project name --> " + projectName);
-      console.log('status --> ' + status);
-      console.log('age --> ' + age);
-      console.log('hand --> ' + hand);
-      console.log('organ --> ' + organ);
-      console.log('species --> ' + species);
-      console.log('date -- > ' + mdate);
-      console.log('unknow --> ' + unknow);
-      console.log('des --> ' + des);
-
-    }
 

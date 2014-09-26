@@ -75,7 +75,7 @@ router.post('/', function(req, res) {
                 console.log('Failed to Insert');
               }
           });
-          res.render('instroduction',{ username: signup_username , useremail : signup_email});
+          res.render('introduction',{ username: signup_username , useremail : signup_email});
         } 
       });    
     }
